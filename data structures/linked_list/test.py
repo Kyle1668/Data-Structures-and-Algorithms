@@ -7,5 +7,7 @@ for i in range(0, 40):
 	my_list.push_back(i)	
 
 
+print("length")
 print(my_list.length)
-print(my_list.get(1)["prev_node"])
+print("data")
+print(my_list.get(1).data)
