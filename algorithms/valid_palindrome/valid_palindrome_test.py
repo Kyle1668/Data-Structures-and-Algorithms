@@ -12,7 +12,7 @@ def test_true():
     palindromes = ["Anna", "Civic", "Kayak", "Level"]
 
     for palindrome in palindromes:
-        assert(is_plaindrome(palindrome))
+        assert is_plaindrome(palindrome)
 
 
 def test_false():

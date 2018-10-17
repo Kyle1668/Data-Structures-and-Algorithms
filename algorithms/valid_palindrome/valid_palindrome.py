@@ -18,12 +18,12 @@ def is_plaindrome(text: str):
 
     if len(parsed) is 0:
         return False
-    else:
-        while (upper_index - lower_index > 1):
-            if parsed[lower_index] is not parsed[upper_index]:
-                return False
 
-            lower_index += 1
-            upper_index -= 1
+    while (upper_index - lower_index > 1):
+        if parsed[lower_index] is not parsed[upper_index]:
+            return False
 
-        return True
+        lower_index += 1
+        upper_index -= 1
+
+    return True
