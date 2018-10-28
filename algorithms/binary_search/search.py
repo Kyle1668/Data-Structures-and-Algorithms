@@ -1,7 +1,7 @@
-"""[summary]
+"""[Binary Search Implimentation]
 """
 
-def binary_search(arr: list, target: any):
+def binary_search(arr: list, target: any) -> bool:
     """[Searches through a list in log(n) time for a value]
 
     Args:
