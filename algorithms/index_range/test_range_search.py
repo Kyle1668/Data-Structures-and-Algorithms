@@ -1,4 +1,4 @@
-from first_try import iterative_search
+from iterative_search import iterative_search
 
 
 def test_iterative_search():
