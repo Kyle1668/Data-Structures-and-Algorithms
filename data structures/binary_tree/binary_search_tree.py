@@ -1,9 +1,4 @@
-class BSTNode:
-    def __init__(self, data):
-        self.data = data
-        self.count = 1
-        self.left_child = None
-        self.right_child = None
+from node import BSTNode
 
 
 class BST:
@@ -12,22 +7,27 @@ class BST:
         self.size = 0
 
     def insert(self, data):
+        new_node = BSTNode(data)
+
         if (self.root_node == None):
-            self.root_node = BSTNode(data)
+            self.root_node = new_node
         else:
-            self.insert_helper(data, self.root_node)
+            self.insert_recursive(new_node, self.root_node)
 
-    def insert_helper(self, data, current_node):
+    def insert_recursive(self, new_node, current_node):
         if (current_node == None):
-            current_node = BSTNode(data)
-        elif (data < current_node.data):
-            self.insert_helper(data, current_node.left_child)
+            current_node = new_node
+            self.size += 1
+        elif (new_node.data < current_node.data):
+            self.insert_recursive(new_node, current_node.left_child)
         else:
-            print(data)
-            self.insert_helper(data, current_node.right_child)
+            self.insert_recursive(new_node, current_node.right_child)
 
-    def print_tree(self, current_node):
+    def print_tree(self):
+        self.print_tree_recursive(self.root_node)
+
+    def print_tree_recursive(self, current_node):
         if (current_node != None):
-            self.print_tree(current_node.left_child)
+            self.print_tree_recursive(current_node.left_child)
             print(current_node.data)
-            self.print_tree(current_node.right_node)
+            self.print_tree_recursive(current_node.right_child)
