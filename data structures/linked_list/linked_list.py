@@ -1,60 +1,75 @@
+class ListNode:
+    def __init__(self, data):
+        self.data = data
+        self.next_node = None
+
+
 class LinkedList:
+    def __init__(self):
+        self.head = None
+        self.tail = None
+        self.length = 0
 
-	class Node:
-		def __init__(self, data):
-			self.data = data
-			self.next_node = None
-			self.prev_node = None
+    def init_first(self, data):
+        new_node = ListNode(data)
+        self.head = new_node
+        self.tail = new_node
+        self.length += 1
 
-	def __init__(self):
-		self.length = 0
-		self.head_node = None
-		self.tail_node = None
+    def push(self, data):
+        if (self.length >= 1):
+            new_node = ListNode(data)
+            self.tail.next_node = new_node
+            self.tail = new_node
+            self.length += 1
+        else:
+            self.init_first(data)
 
-	def push_back(self, data):
+    def push_front(self, data):
+        if (self.length >= 1):
+            new_node = ListNode(data)
+            new_node.next_node = self.head
+            self.head = new_node
+            self.length += 1
+        else:
+            self.init_first(data)
 
-		new_node = self.Node(data)
+    def pop(self):
+        if (self.length == 0):
+            return
+        elif (self.length == 1):
+            self.head = None
+            self.tail = None
+            self.length = 0
+        else:
+            self.tail = None
+            self.tail = self.head
 
-		if (data != None):
-			if (self.length == 0):
-				self.head_node = self.tail_node = new_node
-			else:
-				self.tail_node.next_node = new_node
-				new_node.prev_node = self.tail_node
-				self.tail_node = new_node
+            while (self.tail.next_node != None):
+                self.tail = self.tail.next_node
 
-			self.length += 1
-			return True
-		else:
-			print("Can't Enter Null Value")
-			return False
+    def delete(self, index):
+        if (index < self.length):
+            self.__delete_node(index)
+        else:
+            upper = self.length - 1
+            raise IndexError(f"Arg ({index}) out of range f[{0}, {upper}]")
 
+    def __delete_node(self, index):
+        prev_node = self.head
+        delete_node = self.head
 
-	def push_front(self, data):
-		new_node = self.Node(data)
+        for _ in range(index - 1):
+            prev_node = prev_node.next_node
+            delete_node = prev_node.next_node
 
-		if (self.length == 0):
-			self.head_node = self.tail_node = new_node
-			self.length = 1
+        prev_node.next_node = delete_node.next_node
+        delete_node = None
+        self.length -= 1
 
-	def get(self, index):
-		print(str(index) + ":" + str(self.length))
-        
-		if (index < self.length):
-			current_node = self.head_node
+    def print(self):
+        iterator_node = self.head
 
-			for i in range(0, index - 1):
-				print(str(i) + ":" + str(index))
-				if (i == index):
-					print(current_node.data)
-					return current_node
-				else:
-					current_node = current_node.next_node
-		else:
-			print("Argued Index Greater Than Length")
-			return None
-
-
-
-
-
+        while (iterator_node):
+            print(iterator_node.data)
+            iterator_node = iterator_node.next_node

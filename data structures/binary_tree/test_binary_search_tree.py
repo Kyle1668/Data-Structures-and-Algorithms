@@ -10,10 +10,10 @@ def test_insert():
 
     test_tree.print_tree()
 
-    assert test_tree.size + 1 == len(numbers)
-    assert test_tree.root_node.data == 9
-    assert test_tree.root_node.left_child.data == 5
-    assert test_tree.root_node.right_child.data == 88
+    assert test_tree.get_size() == len(numbers)
+    assert test_tree.get_root().data == 9
+    assert test_tree.get_root().left_child.data == 5
+    assert test_tree.get_root().right_child.data == 88
 
 
 def test_print():
