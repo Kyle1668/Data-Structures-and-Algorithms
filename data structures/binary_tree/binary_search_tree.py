@@ -22,19 +22,24 @@ class BST:
             self.insert_recursive(new_node, self.__root_node)
 
     def insert_recursive(self, new_node, current_node):
-        if (current_node == None):
-            current_node = new_node
-            self.__size += 1
-        elif (new_node.data < current_node.data):
-            self.insert_recursive(new_node, current_node.left_child)
+        if (new_node.data < current_node.data):
+            if (current_node.left_child == None):
+                current_node.left_child = new_node
+                self.__size += 1
+            else:
+                self.insert_recursive(new_node, current_node.left_child)
         else:
-            self.insert_recursive(new_node, current_node.right_child)
+            if (current_node.right_child == None):
+                current_node.right_child = new_node
+                self.__size += 1
+            else:
+                self.insert_recursive(new_node, current_node.right_child)
 
-    def print_tree(self):
-        self.print_tree_recursive(self.__root_node)
+    def print_tree_inorder(self):
+        self.print_tree_recursive_inorder(self.__root_node)
 
-    def print_tree_recursive(self, current_node):
+    def print_tree_recursive_inorder(self, current_node):
         if (current_node != None):
-            self.print_tree_recursive(current_node.left_child)
+            self.print_tree_recursive_inorder(current_node.left_child)
             print(current_node.data)
-            self.print_tree_recursive(current_node.right_child)
+            self.print_tree_recursive_inorder(current_node.right_child)

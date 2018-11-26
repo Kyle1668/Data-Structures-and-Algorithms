@@ -8,19 +8,29 @@ def test_insert():
     for num in numbers:
         test_tree.insert(num)
 
-    test_tree.print_tree()
-
     assert test_tree.get_size() == len(numbers)
     assert test_tree.get_root().data == 9
     assert test_tree.get_root().left_child.data == 5
     assert test_tree.get_root().right_child.data == 88
 
 
-def test_print():
+def test_print_inorder():
     numbers = [9, 5, 7, 8, 3, 3, 4, 88, 3]
     test_tree = BST()
 
     for num in numbers:
         test_tree.insert(num)
 
-    test_tree.print_tree()
+    print("")
+    test_tree.print_tree_inorder()
+
+
+def test_print_inorder():
+    numbers = [9, 5, 7, 8, 3, 3, 4, 88, 3]
+    test_tree = BST()
+
+    for num in numbers:
+        test_tree.insert(num)
+
+    print("")
+    test_tree.print_tree_inorder()
