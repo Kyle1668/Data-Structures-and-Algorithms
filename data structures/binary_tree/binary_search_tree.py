@@ -43,3 +43,21 @@ class BST:
             self.print_tree_recursive_inorder(current_node.left_child)
             print(current_node.data)
             self.print_tree_recursive_inorder(current_node.right_child)
+
+    def print_tree_preorder(self):
+        self.print_tree_recursive_preorder(self.__root_node)
+
+    def print_tree_recursive_preorder(self, current_node):
+        if (current_node != None):
+            print(current_node.data)
+            self.print_tree_recursive_preorder(current_node.left_child)
+            self.print_tree_recursive_preorder(current_node.right_child)
+
+    def print_tree_postorder(self):
+        self.print_tree_recursive_postorder(self.__root_node)
+
+    def print_tree_recursive_postorder(self, current_node):
+        if (current_node != None):
+            self.print_tree_recursive_postorder(current_node.left_child)
+            self.print_tree_recursive_postorder(current_node.right_child)
+            print(current_node.data)

@@ -15,22 +15,36 @@ def test_insert():
 
 
 def test_print_inorder():
-    numbers = [9, 5, 7, 8, 3, 3, 4, 88, 3]
+    numbers = [2, 1, 3]
     test_tree = BST()
 
     for num in numbers:
         test_tree.insert(num)
 
-    print("")
+    print("\n")
     test_tree.print_tree_inorder()
+    print("")
 
 
-def test_print_inorder():
-    numbers = [9, 5, 7, 8, 3, 3, 4, 88, 3]
+def test_print_preorder():
+    numbers = [2, 1, 3]
     test_tree = BST()
 
     for num in numbers:
         test_tree.insert(num)
 
+    print("\n")
+    test_tree.print_tree_preorder()
     print("")
-    test_tree.print_tree_inorder()
+
+
+def test_print_postorder():
+    numbers = [2, 1, 3]
+    test_tree = BST()
+
+    for num in numbers:
+        test_tree.insert(num)
+
+    print("\n")
+    test_tree.print_tree_postorder()
+    print("")
