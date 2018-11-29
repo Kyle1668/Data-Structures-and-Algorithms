@@ -84,4 +84,4 @@ class BST:
         if (current_node.data < min_bound or current_node.data > max_bound):
             return False
 
-        return self.__is_bst_helper(current_node.left_child, min_bound, current_node.data - 1) and self.__is_bst_helper(current_node.right_child, current_node.data + 1, max_bound)
+        return self.__is_bst_helper(current_node.left_child, min_bound, current_node.data) and self.__is_bst_helper(current_node.right_child, current_node.data, max_bound)
