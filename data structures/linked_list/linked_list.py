@@ -56,20 +56,27 @@ class LinkedList:
             raise IndexError(f"Arg ({index}) out of range f[{0}, {upper}]")
 
     def __delete_node(self, index):
-        prev_node = self.head
-        delete_node = self.head
+        if (index == 0):
+            temp = self.head.next_node
+            self.head.next_node = None
+            self.head = temp
+        else:
+            prev_node = None
+            delete_node = self.head
 
-        for _ in range(index - 1):
-            prev_node = prev_node.next_node
-            delete_node = prev_node.next_node
+            for _ in range(index):
+                prev_node = delete_node
+                delete_node = delete_node.next_node
 
-        prev_node.next_node = delete_node.next_node
-        delete_node = None
+            temp = delete_node.next_node
+            delete_node = None
+            prev_node.next_node = temp
+
         self.length -= 1
 
     def print(self):
         iterator_node = self.head
 
         while (iterator_node):
-            print(iterator_node.data)
+            print(iterator_node.data, end=" ")
             iterator_node = iterator_node.next_node

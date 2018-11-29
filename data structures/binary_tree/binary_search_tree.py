@@ -45,7 +45,7 @@ class BST:
             # Current
             # Right
             self.__print_tree_recursive_inorder(current_node.left_child)
-            print(current_node.data)
+            print(current_node.data, end=" ")
             self.__print_tree_recursive_inorder(current_node.right_child)
 
     def print_tree_preorder(self):
@@ -56,7 +56,7 @@ class BST:
             # Current
             # Left
             # Right
-            print(current_node.data)
+            print(current_node.data, end=" ")
             self.__print_tree_recursive_preorder(current_node.left_child)
             self.__print_tree_recursive_preorder(current_node.right_child)
 
@@ -70,7 +70,7 @@ class BST:
             # Current
             self.__print_tree_recursive_postorder(current_node.left_child)
             self.__print_tree_recursive_postorder(current_node.right_child)
-            print(current_node.data)
+            print(current_node.data, end=" ")
 
     def is_bst(self):
         max_val = sys.maxsize
