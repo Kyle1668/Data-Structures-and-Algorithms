@@ -1,4 +1,5 @@
-from binary_search_tree import BSTNode, BST
+from .binary_search_tree import BST
+from .node import BSTNode
 
 
 def test_insert():

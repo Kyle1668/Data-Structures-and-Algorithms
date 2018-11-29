@@ -1,4 +1,4 @@
-from linked_list import LinkedList
+from .linked_list import LinkedList
 
 nums = [1, 4, 6, 7, 99, 0, -1]
 

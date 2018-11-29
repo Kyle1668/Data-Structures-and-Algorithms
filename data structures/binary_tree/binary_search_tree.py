@@ -1,5 +1,5 @@
 import sys
-from node import BSTNode
+from .node import BSTNode
 
 
 class BST:
