@@ -48,3 +48,17 @@ def test_print_postorder():
     print("\n")
     test_tree.print_tree_postorder()
     print("")
+
+
+def test_bst_validation():
+    numbers = [9, 5, 7, 8, 3, 4, 88]
+    test_tree = BST()
+
+    for num in numbers:
+        test_tree.insert(num)
+
+    assert test_tree.is_bst() == True
+
+    test_tree.get_root().left_child.data = 10
+
+    assert test_tree.is_bst() == False

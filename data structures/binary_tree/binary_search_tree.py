@@ -1,3 +1,4 @@
+import sys
 from node import BSTNode
 
 
@@ -72,5 +73,15 @@ class BST:
             print(current_node.data)
 
     def is_bst(self):
+        max_val = sys.maxsize
+        min_val = -sys.maxsize - 1
+        return self.__is_bst_helper(self.__root_node, min_val, max_val)
 
+    def __is_bst_helper(self, current_node, min_bound, max_bound):
+        if not current_node:
+            return True
 
+        if (current_node.data < min_bound or current_node.data > max_bound):
+            return False
+
+        return self.__is_bst_helper(current_node.left_child, min_bound, current_node.data - 1) and self.__is_bst_helper(current_node.right_child, current_node.data + 1, max_bound)
