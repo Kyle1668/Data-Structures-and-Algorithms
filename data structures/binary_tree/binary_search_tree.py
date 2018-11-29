@@ -36,39 +36,41 @@ class BST:
                 self.insert_recursive(new_node, current_node.right_child)
 
     def print_tree_inorder(self):
-        self.print_tree_recursive_inorder(self.__root_node)
+        self.__print_tree_recursive_inorder(self.__root_node)
 
-    def print_tree_recursive_inorder(self, current_node):
+    def __print_tree_recursive_inorder(self, current_node):
         if (current_node != None):
             # Left
             # Current
             # Right
-            self.print_tree_recursive_inorder(current_node.left_child)
+            self.__print_tree_recursive_inorder(current_node.left_child)
             print(current_node.data)
-            self.print_tree_recursive_inorder(current_node.right_child)
+            self.__print_tree_recursive_inorder(current_node.right_child)
 
     def print_tree_preorder(self):
-        self.print_tree_recursive_preorder(self.__root_node)
+        self.__print_tree_recursive_preorder(self.__root_node)
 
-    def print_tree_recursive_preorder(self, current_node):
+    def __print_tree_recursive_preorder(self, current_node):
         if (current_node != None):
             # Current
             # Left
             # Right
             print(current_node.data)
-            self.print_tree_recursive_preorder(current_node.left_child)
-            self.print_tree_recursive_preorder(current_node.right_child)
+            self.__print_tree_recursive_preorder(current_node.left_child)
+            self.__print_tree_recursive_preorder(current_node.right_child)
 
     def print_tree_postorder(self):
-        self.print_tree_recursive_postorder(self.__root_node)
+        self.__print_tree_recursive_postorder(self.__root_node)
 
-    def print_tree_recursive_postorder(self, current_node):
+    def __print_tree_recursive_postorder(self, current_node):
         if (current_node != None):
             # Left
             # Right
             # Current
-            self.print_tree_recursive_postorder(current_node.left_child)
-            self.print_tree_recursive_postorder(current_node.right_child)
+            self.__print_tree_recursive_postorder(current_node.left_child)
+            self.__print_tree_recursive_postorder(current_node.right_child)
             print(current_node.data)
+
+    def is_bst(self):
 
 
